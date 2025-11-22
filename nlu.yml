@@ -1,0 +1,563 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - hey there
+    - namaste
+    - namaskar
+    - hi bot
+    - hello bot
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you later
+    - bye bye
+    - see you
+    - catch you later
+    - talk to you later
+    - alvida
+    - bye for now
+
+- intent: affirm
+  examples: |
+    - yes
+    - yeah
+    - yep
+    - sure
+    - of course
+    - that sounds good
+    - correct
+    - right
+    - haan
+    - yes please
+
+- intent: deny
+  examples: |
+    - no
+    - nope
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - nahi
+    - no thanks
+
+- intent: ask_headache
+  examples: |
+    - I have a headache
+    - my head hurts
+    - what should I do for headache
+    - headache remedy
+    - severe headache
+    - migraine help
+    - head is paining
+    - sir dard hai
+    - sir mein dard ho raha hai
+    - headache ka ilaj
+    - what to do for headache
+
+- intent: ask_fever
+  examples: |
+    - I have fever
+    - running temperature
+    - high fever
+    - fever management
+    - what to do for fever
+    - how to reduce fever
+    - bukhar hai
+    - tap hai
+    - bukhar kam kaise kare
+    - fever ka upchar
+
+- intent: ask_cold_flu
+  examples: |
+    - I have a cold
+    - flu symptoms
+    - how to prevent flu
+    - cold and cough
+    - runny nose
+    - sore throat
+    - zukam hai
+    - jukam ho gaya
+    - sardi ho gayi hai
+    - flu se kaise bache
+
+- intent: ask_first_aid_cuts
+  examples: |
+    - I cut myself
+    - how to treat cuts
+    - bleeding wound
+    - first aid for cuts
+    - cut treatment
+    - wound care
+    - chot lag gayi
+    - khoon aa raha hai
+    - ghav ka ilaj
+    - cut ka first aid
+
+- intent: ask_first_aid_burns
+  examples: |
+    - I burned myself
+    - burn treatment
+    - first aid for burns
+    - hot water burn
+    - cooking burn
+    - jal gaya
+    - jalne ka ilaj
+    - burn ka first aid
+
+- intent: ask_exercise
+  examples: |
+    - exercise benefits
+    - how much should I exercise
+    - daily workout
+    - fitness tips
+    - exercise routine
+    - physical activity
+    - vyayam ke fayde
+    - kasrat kaise kare
+    - exercise kitna karna chahiye
+
+- intent: ask_diet
+  examples: |
+    - healthy eating
+    - diet tips
+    - what should I eat
+    - nutrition advice
+    - balanced diet
+    - healthy food
+    - sehatmand khana
+    - bhojan ki salah
+    - kya khana chahiye
+
+- intent: ask_stress
+  examples: |
+    - I feel stressed
+    - stress management
+    - anxiety relief
+    - mental health
+    - how to reduce stress
+    - tanav hai
+    - stress kam kaise kare
+    - chinta se kaise bache
+
+- intent: ask_sleep
+  examples: |
+    - sleep problems
+    - can't sleep
+    - insomnia
+    - better sleep tips
+    - how to sleep well
+    - neend nahi aati
+    - acchi neend kaise le
+
+- intent: ask_diabetes
+  examples: |
+    - diabetes information
+    - sugar control
+    - diabetes management
+    - blood sugar levels
+    - diabetes ke bare mein
+    - sugar ki bimari
+
+- intent: ask_blood_pressure
+  examples: |
+    - high blood pressure
+    - BP control
+    - hypertension
+    - blood pressure management
+    - high BP ka ilaj
+    - blood pressure kaise kam kare
+
+- intent: ask_stomach_ache
+  examples: |
+    - stomach pain
+    - stomach ache
+    - belly hurts
+    - digestive issues
+    - pet dard
+    - pet mein dard ho raha hai
+    - pet kharab hai
+
+- intent: ask_back_pain
+  examples: |
+    - back pain
+    - lower back pain
+    - back ache
+    - spine pain
+    - kamar dard
+    - peeth mein dard
+
+- intent: ask_emergency
+  examples: |
+    - this is an emergency
+    - urgent help
+    - serious condition
+    - emergency situation
+    - need immediate help
+    - emergency hai
+    - turant madad chahiye
+
+- intent: thank
+  examples: |
+    - thanks
+    - thank you
+    - thanks a lot
+    - thank you so much
+    - appreciate it
+    - thanks for the help
+    - dhanyavaad
+    - shukriya
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot
+    - are you human
+    - am I talking to a bot
+    - are you real
+    - who are you
+    - what are you
+
+
+
+# version: "3.1"
+
+# nlu:
+# # ---------------- GREET ----------------
+# - intent: greet
+#   examples: |
+#     - hey
+#     - hello
+#     - hi
+#     - hello there
+#     - good morning
+#     - good evening
+#     - hey there
+#     - namaste
+#     - namaskar
+#     - hi bot
+#     - hello bot
+#     - नमस्ते
+#     - हेलो
+#     - हाय
+#     - शुभ प्रभात
+#     - शुभ संध्या
+#     - अरे सुनो
+#     - हाय बॉट
+#     - हेलो बॉट
+
+# # ---------------- GOODBYE ----------------
+# - intent: goodbye
+#   examples: |
+#     - bye
+#     - goodbye
+#     - see you later
+#     - bye bye
+#     - see you
+#     - catch you later
+#     - talk to you later
+#     - alvida
+#     - bye for now
+#     - अलविदा
+#     - फिर मिलेंगे
+#     - बाय
+#     - अब चलता हूँ
+#     - अब मिलते हैं
+
+# # ---------------- AFFIRM ----------------
+# - intent: affirm
+#   examples: |
+#     - yes
+#     - yeah
+#     - yep
+#     - sure
+#     - of course
+#     - that sounds good
+#     - correct
+#     - right
+#     - haan
+#     - yes please
+#     - हाँ
+#     - बिल्कुल
+#     - ठीक है
+#     - हाँ सही है
+#     - ज़रूर
+#     - हाँ कृपया
+
+# # ---------------- DENY ----------------
+# - intent: deny
+#   examples: |
+#     - no
+#     - nope
+#     - never
+#     - I don't think so
+#     - don't like that
+#     - no way
+#     - not really
+#     - nahi
+#     - no thanks
+#     - नहीं
+#     - कभी नहीं
+#     - मुझे नहीं लगता
+#     - नहीं चाहिए
+#     - ऐसा नहीं है
+
+# # ---------------- HEADACHE ----------------
+# - intent: ask_headache
+#   examples: |
+#     - I have a headache
+#     - my head hurts
+#     - what should I do for headache
+#     - headache remedy
+#     - severe headache
+#     - migraine help
+#     - head is paining
+#     - sir dard hai
+#     - sir mein dard ho raha hai
+#     - headache ka ilaj
+#     - what to do for headache
+#     - मेरा सिर दर्द कर रहा है
+#     - सिर में दर्द है
+#     - सिर भारी लग रहा है
+#     - सिर दर्द का इलाज बताओ
+#     - माइग्रेन है
+
+# # ---------------- FEVER ----------------
+# - intent: ask_fever
+#   examples: |
+#     - I have fever
+#     - running temperature
+#     - high fever
+#     - fever management
+#     - what to do for fever
+#     - how to reduce fever
+#     - bukhar hai
+#     - tap hai
+#     - bukhar kam kaise kare
+#     - fever ka upchar
+#     - मुझे बुखार है
+#     - तेज़ बुखार है
+#     - बुखार कैसे कम करें
+#     - बुखार नहीं उतर रहा
+
+# # ---------------- COLD/FLU ----------------
+# - intent: ask_cold_flu
+#   examples: |
+#     - I have a cold
+#     - flu symptoms
+#     - how to prevent flu
+#     - cold and cough
+#     - runny nose
+#     - sore throat
+#     - zukam hai
+#     - jukam ho gaya
+#     - sardi ho gayi hai
+#     - flu se kaise bache
+#     - मुझे ज़ुकाम हो गया
+#     - सर्दी-खांसी है
+#     - नाक बह रही है
+#     - गला दर्द कर रहा है
+#     - फ्लू से बचाव कैसे करें
+
+# # ---------------- CUTS ----------------
+# - intent: ask_first_aid_cuts
+#   examples: |
+#     - I cut myself
+#     - how to treat cuts
+#     - bleeding wound
+#     - first aid for cuts
+#     - cut treatment
+#     - wound care
+#     - chot lag gayi
+#     - khoon aa raha hai
+#     - ghav ka ilaj
+#     - cut ka first aid
+#     - मैंने खुद को काट लिया
+#     - चोट लग गई
+#     - घाव से खून आ रहा है
+#     - कट लग गया
+
+# # ---------------- BURNS ----------------
+# - intent: ask_first_aid_burns
+#   examples: |
+#     - I burned myself
+#     - burn treatment
+#     - first aid for burns
+#     - hot water burn
+#     - cooking burn
+#     - jal gaya
+#     - jalne ka ilaj
+#     - burn ka first aid
+#     - जल गया हूँ
+#     - जलने पर क्या करें
+#     - गर्म पानी से जल गया
+
+# # ---------------- EXERCISE ----------------
+# - intent: ask_exercise
+#   examples: |
+#     - exercise benefits
+#     - how much should I exercise
+#     - daily workout
+#     - fitness tips
+#     - exercise routine
+#     - physical activity
+#     - vyayam ke fayde
+#     - kasrat kaise kare
+#     - exercise kitna karna chahiye
+#     - रोज़ाना व्यायाम के फायदे क्या हैं
+#     - कितनी देर व्यायाम करना चाहिए
+#     - फिटनेस टिप्स बताओ
+
+# # ---------------- DIET ----------------
+# - intent: ask_diet
+#   examples: |
+#     - healthy eating
+#     - diet tips
+#     - what should I eat
+#     - nutrition advice
+#     - balanced diet
+#     - healthy food
+#     - sehatmand khana
+#     - bhojan ki salah
+#     - kya khana chahiye
+#     - स्वस्थ भोजन कैसे करें
+#     - क्या खाना चाहिए
+#     - डाइट टिप्स बताओ
+#     - पोषण सलाह
+
+# # ---------------- STRESS ----------------
+# - intent: ask_stress
+#   examples: |
+#     - I feel stressed
+#     - stress management
+#     - anxiety relief
+#     - mental health
+#     - how to reduce stress
+#     - tanav hai
+#     - stress kam kaise kare
+#     - chinta se kaise bache
+#     - मैं तनाव में हूँ
+#     - तनाव कैसे कम करें
+#     - चिंता बहुत हो रही है
+#     - स्ट्रेस कम करने के उपाय बताओ
+
+# # ---------------- SLEEP ----------------
+# - intent: ask_sleep
+#   examples: |
+#     - sleep problems
+#     - can't sleep
+#     - insomnia
+#     - better sleep tips
+#     - how to sleep well
+#     - neend nahi aati
+#     - acchi neend kaise le
+#     - नींद नहीं आ रही
+#     - अच्छी नींद कैसे लें
+#     - नींद की समस्या है
+#     - रात में नींद नहीं आती
+
+# # ---------------- DIABETES ----------------
+# - intent: ask_diabetes
+#   examples: |
+#     - diabetes information
+#     - sugar control
+#     - diabetes management
+#     - blood sugar levels
+#     - diabetes ke bare mein
+#     - sugar ki bimari
+#     - मुझे डायबिटीज है
+#     - शुगर का लेवल ज़्यादा है
+#     - शुगर कैसे कंट्रोल करें
+
+# # ---------------- BLOOD PRESSURE ----------------
+# - intent: ask_blood_pressure
+#   examples: |
+#     - high blood pressure
+#     - BP control
+#     - hypertension
+#     - blood pressure management
+#     - high BP ka ilaj
+#     - blood pressure kaise kam kare
+#     - मेरा BP ज़्यादा है
+#     - हाई ब्लड प्रेशर है
+#     - BP कैसे कंट्रोल करें
+
+# # ---------------- STOMACH ACHE ----------------
+# - intent: ask_stomach_ache
+#   examples: |
+#     - stomach pain
+#     - stomach ache
+#     - belly hurts
+#     - digestive issues
+#     - pet dard
+#     - pet mein dard ho raha hai
+#     - pet kharab hai
+#     - पेट दर्द हो रहा है
+#     - पेट में गैस है
+#     - पेट खराब है
+
+# # ---------------- BACK PAIN ----------------
+# - intent: ask_back_pain
+#   examples: |
+#     - back pain
+#     - lower back pain
+#     - back ache
+#     - spine pain
+#     - kamar dard
+#     - peeth mein dard
+#     - कमर दर्द
+#     - पीठ दर्द हो रहा है
+#     - रीढ़ की हड्डी में दर्द
+
+# # ---------------- EMERGENCY ----------------
+# - intent: ask_emergency
+#   examples: |
+#     - this is an emergency
+#     - urgent help
+#     - serious condition
+#     - emergency situation
+#     - need immediate help
+#     - emergency hai
+#     - turant madad chahiye
+#     - यह आपातकालीन स्थिति है
+#     - तुरंत मदद चाहिए
+#     - जान का खतरा है
+
+# # ---------------- THANK ----------------
+# - intent: thank
+#   examples: |
+#     - thanks
+#     - thank you
+#     - thanks a lot
+#     - thank you so much
+#     - appreciate it
+#     - thanks for the help
+#     - dhanyavaad
+#     - shukriya
+#     - धन्यवाद
+#     - शुक्रिया
+#     - आपकी मदद के लिए धन्यवाद
+
+# # ---------------- BOT CHALLENGE ----------------
+# - intent: bot_challenge
+#   examples: |
+#     - are you a bot
+#     - are you human
+#     - am I talking to a bot
+#     - are you real
+#     - who are you
+#     - what are you
+#     - क्या तुम बॉट हो?
+#     - क्या तुम इंसान हो?
+#     - तुम कौन हो?
+#     - क्या मैं बॉट से बात कर रहा हूँ?

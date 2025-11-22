@@ -1,0 +1,124 @@
+version: "3.1"
+
+stories:
+
+- story: greet and ask headache
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_headache
+  - action: utter_ask_headache
+  - action: utter_disclaimer
+
+- story: ask headache directly
+  steps:
+  - intent: ask_headache
+  - action: utter_ask_headache
+  - action: utter_disclaimer
+
+- story: fever inquiry
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_fever
+  - action: utter_ask_fever
+  - action: utter_disclaimer
+  - intent: thank
+  - action: utter_thank
+
+- story: cold and flu prevention
+  steps:
+  - intent: ask_cold_flu
+  - action: utter_ask_cold_flu
+  - action: utter_disclaimer
+
+- story: first aid for cuts
+  steps:
+  - intent: ask_first_aid_cuts
+  - action: utter_ask_first_aid_cuts
+  - action: utter_disclaimer
+
+- story: first aid for burns
+  steps:
+  - intent: ask_first_aid_burns
+  - action: utter_ask_first_aid_burns
+  - action: utter_disclaimer
+
+- story: exercise advice
+  steps:
+  - intent: ask_exercise
+  - action: utter_ask_exercise
+  - intent: affirm
+  - action: utter_thank
+
+- story: diet information
+  steps:
+  - intent: ask_diet
+  - action: utter_ask_diet
+  - action: utter_disclaimer
+
+- story: stress management
+  steps:
+  - intent: ask_stress
+  - action: utter_ask_stress
+  - action: utter_disclaimer
+
+- story: sleep advice
+  steps:
+  - intent: ask_sleep
+  - action: utter_ask_sleep
+  - action: utter_disclaimer
+
+- story: diabetes information
+  steps:
+  - intent: ask_diabetes
+  - action: utter_ask_diabetes
+  - action: utter_disclaimer
+
+- story: blood pressure management
+  steps:
+  - intent: ask_blood_pressure
+  - action: utter_ask_blood_pressure
+  - action: utter_disclaimer
+
+- story: stomach ache help
+  steps:
+  - intent: ask_stomach_ache
+  - action: utter_ask_stomach_ache
+  - action: utter_disclaimer
+
+- story: back pain relief
+  steps:
+  - intent: ask_back_pain
+  - action: utter_ask_back_pain
+  - action: utter_disclaimer
+
+- story: emergency situation
+  steps:
+  - intent: ask_emergency
+  - action: utter_emergency
+
+- story: bot challenge
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- story: say goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: multiple health queries
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_headache
+  - action: utter_ask_headache
+  - action: utter_disclaimer
+  - intent: ask_fever
+  - action: utter_ask_fever
+  - action: utter_disclaimer
+  - intent: thank
+  - action: utter_thank
+  - intent: goodbye
+  - action: utter_goodbye

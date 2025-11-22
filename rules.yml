@@ -1,0 +1,90 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Handle emergency immediately
+  steps:
+  - intent: ask_emergency
+  - action: utter_emergency
+
+- rule: Show disclaimer after health advice
+  steps:
+  - intent: ask_headache
+  - action: utter_ask_headache
+  - action: utter_disclaimer
+
+- rule: Show disclaimer after fever advice
+  steps:
+  - intent: ask_fever
+  - action: utter_ask_fever
+  - action: utter_disclaimer
+
+- rule: Show disclaimer after cold/flu advice
+  steps:
+  - intent: ask_cold_flu
+  - action: utter_ask_cold_flu
+  - action: utter_disclaimer
+
+- rule: Show disclaimer after first aid
+  steps:
+  - intent: ask_first_aid_cuts
+  - action: utter_ask_first_aid_cuts
+  - action: utter_disclaimer
+
+- rule: Show disclaimer after burn aid
+  steps:
+  - intent: ask_first_aid_burns
+  - action: utter_ask_first_aid_burns
+  - action: utter_disclaimer
+
+- rule: Show disclaimer after diet advice
+  steps:
+  - intent: ask_diet
+  - action: utter_ask_diet
+  - action: utter_disclaimer
+
+- rule: Show disclaimer after stress advice
+  steps:
+  - intent: ask_stress
+  - action: utter_ask_stress
+  - action: utter_disclaimer
+
+- rule: Show disclaimer after sleep advice
+  steps:
+  - intent: ask_sleep
+  - action: utter_ask_sleep
+  - action: utter_disclaimer
+
+- rule: Show disclaimer after diabetes info
+  steps:
+  - intent: ask_diabetes
+  - action: utter_ask_diabetes
+  - action: utter_disclaimer
+
+- rule: Show disclaimer after BP info
+  steps:
+  - intent: ask_blood_pressure
+  - action: utter_ask_blood_pressure
+  - action: utter_disclaimer
+
+- rule: Show disclaimer after stomach advice
+  steps:
+  - intent: ask_stomach_ache
+  - action: utter_ask_stomach_ache
+  - action: utter_disclaimer
+
+- rule: Show disclaimer after back pain advice
+  steps:
+  - intent: ask_back_pain
+  - action: utter_ask_back_pain
+  - action: utter_disclaimer

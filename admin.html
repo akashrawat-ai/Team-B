@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WellBot Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Header -->
+        <div class="admin-header">
+            <div class="header-left">
+                <h1>❤️ WellBot Admin Dashboard</h1>
+                <p>Real-time Analytics & Management</p>
+            </div>
+            <div class="header-right">
+                <span class="user-info">Welcome, Admin</span>
+                <button class="btn-primary" onclick="logout()">Logout</button>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="admin-nav">
+            <button class="nav-btn active" onclick="showSection('dashboard')">
+                📊 Dashboard
+            </button>
+            <button class="nav-btn" onclick="showSection('knowledge')">
+                📚 Knowledge Base
+            </button>
+            <button class="nav-btn" onclick="showSection('users')">
+                👥 Users
+            </button>
+            <button class="nav-btn" onclick="showSection('queries')">
+                💬 Queries
+            </button>
+            <button class="nav-btn" onclick="showSection('feedback')">
+                ⭐ Feedback
+            </button>
+            <button class="nav-btn" onclick="showSection('activities')">
+                📝 Activities
+            </button>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div id="dashboard" class="content-section active">
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-number" id="totalUsers">0</div>
+                    <div class="stat-label">Total Users</div>
+                    <div class="stat-subtext" id="activeUsers">0 active</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💬</div>
+                    <div class="stat-number" id="totalQueries">0</div>
+                    <div class="stat-label">Queries Handled</div>
+                    <div class="stat-subtext" id="totalConversations">0 conversations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📚</div>
+                    <div class="stat-number" id="healthTopics">0</div>
+                    <div class="stat-label">Health Topics</div>
+                    <div class="stat-subtext">WHO Guidelines</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-number" id="positiveFeedback">0%</div>
+                    <div class="stat-label">Positive Feedback</div>
+                    <div class="stat-subtext" id="totalFeedback">0 ratings</div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="charts-container">
+                <div class="chart-card">
+                    <h3>📈 Query Trends (Last 7 Days)</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="queryTrendsChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <h3>🎯 Top Query Categories</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="intentsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity & Admin Activities -->
+            <div class="charts-container">
+                <div class="chart-card">
+                    <h3>🕒 Recent User Activity</h3>
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Action</th>
+                                    <th>Topic</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recentActivityTable">
+                                <!-- Dynamic content -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <h3>👑 Admin Activities</h3>
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Admin</th>
+                                    <th>Action</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminActivitiesTable">
+                                <!-- Dynamic content -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Knowledge Base Section -->
+        <div id="knowledge" class="content-section">
+            <div class="table-header">
+                <h3>📚 Knowledge Base Management</h3>
+                <button class="btn-primary" onclick="showKnowledgeForm()">+ Add New Entry</button>
+            </div>
+
+            <!-- Knowledge Form -->
+            <div id="knowledgeForm" class="knowledge-form" style="display: none;">
+                <h3 id="knowledgeFormTitle">➕ Add New Health Information</h3>
+                <form id="knowledgeEntryForm">
+                    <input type="hidden" id="entryId">
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="category" class="form-control" required>
+                            <option value="">Select Category</option>
+                            <option value="infectious_diseases">Infectious Diseases</option>
+                            <option value="chronic_diseases">Chronic Diseases</option>
+                            <option value="mental_health">Mental Health</option>
+                            <option value="nutrition">Nutrition</option>
+                            <option value="first_aid">First Aid</option>
+                            <option value="exercise">Exercise & Fitness</option>
+                            <option value="prevention">Prevention</option>
+                            <option value="general">General Health</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" id="title" class="form-control" required placeholder="Enter title...">
+                    </div>
+                    <div class="form-group">
+                        <label>Content</label>
+                        <textarea id="content" class="form-control" rows="8" required placeholder="Enter detailed health information..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Language</label>
+                        <select id="language" class="form-control">
+                            <option value="en">English</option>
+                            <option value="hi">Hindi</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Tags (comma separated)</label>
+                        <input type="text" id="tags" class="form-control" placeholder="covid, prevention, vaccine">
+                    </div>
+                    <div class="form-group">
+                        <label>Source</label>
+                        <input type="text" id="source" class="form-control" value="WHO" placeholder="WHO, CDC, etc.">
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="isActive" checked>
+                            <span>Active</span>
+                        </label>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Save Entry</button>
+                        <button type="button" class="btn-secondary" onclick="hideKnowledgeForm()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Title</th>
+                            <th>Content Preview</th>
+                            <th>Language</th>
+                            <th>Status</th>
+                            <th>Created By</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="knowledgeTable">
+                        <!-- Dynamic content -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Users Section -->
+        <div id="users" class="content-section">
+            <div class="table-header">
+                <h3>👥 User Management</h3>
+                <div class="table-info" id="usersCount">Total: 0 users</div>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Age Group</th>
+                            <th>Language</th>
+                            <th>Conversations</th>
+                            <th>Messages</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Last Login</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTable">
+                        <!-- Dynamic content -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Queries Section -->
+        <div id="queries" class="content-section">
+            <div class="table-header">
+                <h3>💬 User Queries</h3>
+                <div class="table-info" id="queriesCount">Showing 0 queries</div>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Query</th>
+                            <th>Intent</th>
+                            <th>Confidence</th>
+                            <th>Timestamp</th>
+                            <th>Conversation ID</th>
+                        </tr>
+                    </thead>
+                    <tbody id="queriesTable">
+                        <!-- Dynamic content -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Feedback Section -->
+        <div id="feedback" class="content-section">
+            <div class="table-header">
+                <h3>⭐ User Feedback</h3>
+                <div class="table-info" id="feedbackInfo">0 feedbacks total</div>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Message</th>
+                            <th>Rating</th>
+                            <th>Comment</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="feedbackTable">
+                        <!-- Dynamic content -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Activities Section -->
+        <div id="activities" class="content-section">
+            <div class="table-header">
+                <h3>📝 Admin Activities Log</h3>
+                <div class="table-info" id="activitiesCount">Last 100 activities</div>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Admin</th>
+                            <th>Action</th>
+                            <th>Description</th>
+                            <th>IP Address</th>
+                            <th>Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody id="activitiesTable">
+                        <!-- Dynamic content -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
