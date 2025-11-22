@@ -1,2 +1,2 @@
-# wellbot1
-fitness chatbot
+# Team B
+wellbot fitness chatbot
